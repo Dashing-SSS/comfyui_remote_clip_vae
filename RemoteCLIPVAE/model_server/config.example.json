@@ -1,0 +1,71 @@
+{
+  "_readme": "这是写法参考。把需要的条目复制进 config.json 的 models 里，并把 files 改成你机器上的真实文件名（相对 <comfyui_dir>/models/）",
+
+  "_llm_note": "提示词优化用的 GGUF（v1.7.17）。默认扫 <comfyui_dir>/models/LLM（以及 llm、gguf 等常见写法），文件名里带 mmproj / vision / vit 的自动归到「视觉投影」。放在别的盘就写 \"llm_model_dir\": \"D:/models/LLM\"。llama-cpp-python 必须装在跑本服务端的那个 python 里（用「4_用ComfyUI的Python启动服务端.bat」最省事），或在这里指定 \"llm_python\": \"D:/ComfyUI/.venv/Scripts/python.exe\"",
+  "_llm_model_dir_example": "D:/models/LLM",
+  "_llm_python_example": "D:/ComfyUI/.venv/Scripts/python.exe",
+
+  "clip": {
+    "flux_dev_clip": {
+      "files": [
+        "text_encoders/t5xxl_fp16.safetensors",
+        "text_encoders/clip_l.safetensors"
+      ],
+      "clip_type": "flux",
+      "note": "Flux：T5-XXL + CLIP-L 两个文件一起加载。A 端必须是同一代 flux 的 UNet"
+    },
+    "flux_dev_clip_fp8": {
+      "files": [
+        "text_encoders/t5xxl_fp8_e4m3fn.safetensors",
+        "text_encoders/clip_l.safetensors"
+      ],
+      "clip_type": "flux",
+      "note": "显存/内存紧张时用 fp8 版 T5"
+    },
+    "sdxl_clip": {
+      "files": [
+        "text_encoders/clip_l.safetensors",
+        "text_encoders/clip_g.safetensors"
+      ],
+      "clip_type": "stable_diffusion",
+      "note": "SDXL 双 CLIP，context 2048 维"
+    },
+    "sd15_clip": {
+      "files": ["text_encoders/clip_vit_l.safetensors"],
+      "clip_type": "stable_diffusion",
+      "note": "SD1.5 单 CLIP，context 768 维"
+    },
+    "sd3_clip": {
+      "files": [
+        "text_encoders/clip_l.safetensors",
+        "text_encoders/clip_g.safetensors",
+        "text_encoders/t5xxl_fp16.safetensors"
+      ],
+      "clip_type": "sd3",
+      "note": "SD3 / SD3.5：两 CLIP + T5"
+    },
+    "qwen_image_clip": {
+      "files": ["text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors"],
+      "clip_type": "qwen_image",
+      "note": "Qwen-Image 用 Qwen2.5-VL 当文本编码器"
+    }
+  },
+
+  "vae": {
+    "flux_ae": { "files": ["vae/ae.safetensors"], "note": "Flux 官方 16 通道 VAE" },
+    "sdxl_vae": { "files": ["vae/sdxl_vae.safetensors"], "note": "SDXL 官方 VAE" },
+    "sd15_vae": { "files": ["vae/vae-ft-mse-840000-ema-pruned.safetensors"], "note": "SD1.5 常用 VAE" },
+    "qwen_image_vae": { "files": ["vae/Qwen/qwen_image_vae.safetensors"], "note": "Qwen-Image VAE" }
+  },
+
+  "_clip_type_note": "clip_type 取值与 ComfyUI 的 CLIPType 一致：stable_diffusion / flux / sd3 / hunyuan_video / wan / qwen_image / ... 写错时服务端启动日志会列出全部可用值",
+
+  "_clip_vision_note": "视觉编码器（给「图片 → CLIP 视觉」模式用）。默认扫 <comfyui_dir>/models/clip_vision；放在别处就在 config.json 写 \"clip_vision_model_dir\": \"D:/models/clip_vision\"。节点里「视觉模型」留空 = 自动用目录里的第一个",
+  "clip_vision": {
+    "eva02_l": { "files": ["clip_vision/EVA02_CLIP_L_336_psz14_s6B.pt"], "note": "Redux / IPAdapter 常用视觉编码器" }
+  },
+
+  "_llm_keys_note": "下面两项留空即自动：llm_model_dir 留空 = <comfyui_dir>/models/LLM；llm_python 留空 = 依次找 llm_python → _python.txt → <comfyui_dir>/.venv/Scripts/python.exe → python_embeded/python.exe（必须能 import torch 和 llama_cpp）",
+  "llm_model_dir": "",
+  "llm_python": ""
+}
