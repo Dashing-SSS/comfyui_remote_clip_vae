@@ -1,0 +1,8 @@
+{
+  "clip_dir": "",
+  "vae_dir": "",
+  "llm_dir": "",
+  "python": "D:\\Comfy-Desktop\\ComfyUI\\ComfyUI\\.venv\\Scripts\\python.exe",
+  "prefer_embedded": true,
+  "geometry": "1440x920+208+208"
+}

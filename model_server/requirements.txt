@@ -1,0 +1,16 @@
+# RemoteCLIPVAE model_server —— 无额外 Python 依赖
+#
+# 必须用 ComfyUI 自己的 Python 运行（整合包的 python_embeded\python.exe 或 .venv）。
+# 需要的东西 ComfyUI 都已经带了：
+#   torch / numpy / pillow(PIL) / safetensors / comfy.sd 代码库
+#
+# 所以这里不需要 pip install，也不建议另外建 venv。
+#
+# 启动：
+#   python app.py --config config.json
+#   python app.py --config config.json --mock     联调（不加载真模型）
+#   python app.py --config config.json --debug    打印每请求耗时与堆栈
+#   python run_headless.py --backend comfy --comfy-path "<ComfyUI 根目录>"
+#
+# 自测：
+#   python selftest.py --url http://127.0.0.1:8199

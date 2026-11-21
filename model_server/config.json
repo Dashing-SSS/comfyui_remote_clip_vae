@@ -1,0 +1,25 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8199,
+    "token": "",
+    "max_request_mb": 256
+  },
+  "comfyui_dir": "",
+  "model_roots": [],
+  "clip_vision_model_dir": "",
+  "device": "auto",
+  "max_loaded": {
+    "clip": 1,
+    "vae": 1,
+    "clip_vision": 1
+  },
+  "idle_unload_seconds": 600,
+  "models": {
+    "clip": {},
+    "vae": {},
+    "clip_vision": {}
+  },
+  "llm_n_ctx": 4096,
+  "llm_image_max_side": 0
+}

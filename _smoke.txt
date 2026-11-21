@@ -1,0 +1,8 @@
+frozen        : True
+data_dir      : C:\Users\23138\Doubao\chats\2026-11-20\new-chat\RemoteCLIPVAE
+srv_dir       : C:\Users\23138\AppData\Local\Temp\_MEI00007f5c2\model_server
+app.py        : OK (C:\Users\23138\AppData\Local\Temp\_MEI00007f5c2\model_server\app.py)
+codec/backend : OK
+config.json   : OK (C:\Users\23138\Doubao\chats\2026-11-20\new-chat\RemoteCLIPVAE\config.json)
+python        : (未设置)
+python_torch  : n/a

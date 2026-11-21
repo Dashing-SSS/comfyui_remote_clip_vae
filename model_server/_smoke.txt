@@ -1,0 +1,8 @@
+frozen        : True
+data_dir      : C:\Users\23138\AppData\Local\Temp\_pyibuild17d\dist
+srv_dir       : C:\Users\23138\AppData\Local\Temp\_MEI000068ec2\model_server
+app.py        : OK (C:\Users\23138\AppData\Local\Temp\_MEI000068ec2\model_server\app.py)
+codec/backend : OK
+config.json   : OK (C:\Users\23138\AppData\Local\Temp\_pyibuild17d\dist\config.json)
+python        : (未设置)
+python_torch  : n/a
